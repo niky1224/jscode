@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<script type="text/javascript" src="js/utils.js"></script>
+<script>
+    var olist=document.getElementsByTagName('div'); //HTMLCollection
+    console.log(olist);
+   // olist=document.getElementsByName('div'); //NodeList
+   // olist=document.getElementsByClassName('div');//HTMLCollection
+   // olist=document.getElementById('div');//HTMLElement
+
+    //eg
+    function arry() {
+        console.log(arguments);
+        var arry=utils.isToArry(arguments);
+        console.log(arry);
+    };
+    arry(olist);
+
+
+    /***
+     * 求平均数
+     * **/
+    function advNum(){
+        //虽然不是数组，但是是用类数组调用sort时把this指向arguments；
+        var aryNUm=Array.prototype.sort.call(arguments,function(a,b){
+            return a-b;
+        });
+        //求和和以
+        // 1. 用reduce
+        // 2. eval
+        var total=Array.prototype.reduce.call(arguments,function(pre,curent){
+            return pre+curent;
+        },0);
+       // total=Array.prototype.join.call(arguments,'+');
+       // total=eval(total);//但不推荐
+
+        console.log(aryNUm);
+        console.log(total,'----');
+    };
+    advNum(3,21,34,56,12);
+
+    /****
+     * tips
+     * throw new Error("所写文本"); //抛出错误
+     *throw new ReferenceError //引用错误
+     * throw new TypeError //类型错误
+     * throw new RangeError //范围错误
+     * **/
+
+
+
+</script>
+</body>
+</html>

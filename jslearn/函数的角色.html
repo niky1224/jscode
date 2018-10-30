@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //函数三种角色
+    /***
+     * 1.做为普通函数  执行的时候形成私有作用域，形参赋值，预解释，代码执行，执行完栈内存销毁/不销毁（外面有继续调用不销毁）
+     * 2.对象实例的类  它有自己的实例额，也有一个叫prototype属性是自己的原型，它的实例都可以指向自己的原型
+     * 3.普通对象
+     * */
+    function animal(n){
+        var num=0;
+        this.x=10;
+        console.log(this);
+    };
+    animal.prototype.getx=function(){
+        console.log(this);
+    };
+    animal();//做为普通函数
+    var f=new animal;//对象实例的类
+    animal.text=function(){//对象属性
+        console.log(1);
+
+    };
+
+
+
+    //函数本身有一些属性
+    //lenght:0 形参个数
+    //name:""  函数名
+    // prototype 类型的原型，在原型上定义的方法都是当前fn这个实例的共有方法
+    //__proto__ 把函数当做一个普通的对象，指向function这各类原型
+</script>
+</body>
+</html>
